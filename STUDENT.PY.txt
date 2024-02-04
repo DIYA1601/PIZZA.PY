@@ -1,0 +1,62 @@
+class Student:
+students_list = []
+def __init__(self, name, roll_no, marks1, marks2):
+self.name = name
+self.roll_no = roll_no
+self.marks1 = marks1
+self.marks2 = marks2
+Student.students_list.append(self)
+def accept(self):
+name = input("Enter student name: ")
+roll_no = int(input("Enter roll number: "))
+marks1 = int(input("Enter marks for subject 1: "))
+marks2 = int(input("Enter marks for subject 2: "))
+student = Student(name, roll_no, marks1, marks2)
+print(f"Student {name} with Roll No {roll_no} added successfully.")
+def display(self):
+print("\nList of Students")
+for student in Student.students_list:
+print(f"\nName : {student.name}\nRollNo : {student.roll_no}\nMarks1␣
+
+↪: {student.marks1}\nMarks2 : {student.marks2}")
+def search(self):
+roll_no = int(input("Enter the roll number to search: "))
+for student in Student.students_list:
+if student.roll_no == roll_no:
+print("\nStudent Found,\n")
+print(f"Name : {student.name}\nRollNo : {student.
+↪roll_no}\nMarks1 : {student.marks1}\nMarks2 : {student.marks2}")
+
+return
+print(f"\nStudent with Roll No {roll_no} not found.")
+def delete(self):
+roll_no = int(input("Enter the roll number to delete: "))
+for student in Student.students_list:
+if student.roll_no == roll_no:
+Student.students_list.remove(student)
+
+
+
+print("\nList after deletion")
+self.display()
+return
+print(f"\nStudent with Roll No {roll_no} not found.")
+def update(self):
+old_roll_no = int(input("Enter the old roll number: "))
+new_roll_no = int(input("Enter the new roll number: "))
+for student in Student.students_list:
+if student.roll_no == old_roll_no:
+student.roll_no = new_roll_no
+print("\nList after updation")
+self.display()
+return
+print(f"\nStudent with Roll No {old_roll_no} not found.")
+# Example Usage
+student_system = Student("vishal",1,10,9)
+student_system.accept()
+student_system.accept()
+student_system.accept()
+student_system.display()
+student_system.search()
+student_system.delete()
+student_system.update()
