@@ -1,0 +1,83 @@
+class InvalidToppingError(Exception):
+
+pass
+class InvalidCheeseError(Exception):
+pass
+class Pizza:
+def __init__(self, size, toppings, cheese):
+self.size = size
+self.toppings = toppings
+self.cheese = cheese
+def price(self):
+self.cost = 0
+if self.size == 'small':
+self.cost += 50
+elif self.size == 'medium':
+self.cost += 100
+else:
+self.cost += 200
+topping_prices_20 = ['corn', 'tomato', 'onion', 'capsicum']
+topping_prices_50 = ['mushroom', 'olives', 'broccoli']
+for topping in self.toppings:
+if topping in topping_prices_20:
+self.cost += 20
+else:
+self.cost += 50
+#for cheese
+self.cost += 50 * len(self.cheese)
+return self.cost
+class Order:
+def __init__(self, name, customerid):
+self.name = name
+self.customerid = customerid
+def order(self, n):
+self.pizzas = []
+for i in range(n):
+toppings = []
+cheese = []
+print('Customize Pizza',i+1)
+size = input('Select size: ')
+t = int(input('How many toppings: '))
+for i in range(t):
+try:
+
+33
+
+a=input('Enter toppings: ')
+if a not in ['corn', 'tomato', 'onion',␣
+
+↪'capsicum','mushroom', 'olives', 'broccoli']:
+
+raise InvalidToppingError("enter valid toppings")
+toppings.append(a)
+except InvalidToppingError as e:
+print(e)
+a=input('Enter toppings: ')
+toppings.append(a)
+t = int(input('How many cheese: '))
+for i in range(t):
+try:
+b=input('Enter cheese: ')
+if b not in ("mozzarella", "feta", "cheddar"):
+raise InvalidCheeseError("enter valid cheese")
+except InvalidCheeseError as e:
+print(e)
+b=input('Enter cheese: ')
+cheese.append(b)
+else:
+cheese.append(b)
+
+self.pizzas.append(Pizza(size, toppings, cheese))
+def bill(self):
+self.total = 0
+count = 1
+for p in self.pizzas:
+print('Pizza', count)
+print(p.size, p.toppings, p.cheese)
+self.total += p.price()
+count += 1
+print('Total bill amount:', self.total)
+number=int(input("How many pizzas you want to order: "))
+order1 = Order('VISHAL', number)
+order1.order(number)
+order1.bill()
